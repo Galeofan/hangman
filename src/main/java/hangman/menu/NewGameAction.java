@@ -18,7 +18,7 @@ public class NewGameAction implements MenuAction {
         store.setWord();
         String word = store.getWord();
         Character[] charArray = new Character[word.length()];
-        showWord(charArray);
+        fillAndShowCharArray(charArray);
 
         while (isStarted) {
             System.out.println("Введите " + "букву:");
@@ -27,12 +27,12 @@ public class NewGameAction implements MenuAction {
             {
                 System.out.println("Буква уже была отгадана ранее");
                 System.out.print("Слово в данный момент: \n");
-                showWord(charArray, letter.charAt(0), word);
+                fillAndShowCharArray(charArray, letter.charAt(0), word);
                 drawHang(mistakes);
             } else if (hasLetter(letter, word)) {
                 counter++;
                 System.out.print("Слово в данный момент: \n");
-                showWord(charArray, letter.charAt(0), word);
+                fillAndShowCharArray(charArray, letter.charAt(0), word);
                 drawHang(mistakes);
             } else {
                 System.out.println("Буквы " + letter + " нет в слове");
@@ -53,7 +53,7 @@ public class NewGameAction implements MenuAction {
         return true;
     }
 
-    public void showWord(Character[] charArray) {
+    public void fillAndShowCharArray(Character[] charArray) {
         for (int i = 0; i < charArray.length; i++) {
             if (null == charArray[i]) {
                 charArray[i] = '_';
@@ -65,11 +65,9 @@ public class NewGameAction implements MenuAction {
         System.out.println();
     }
 
-    public void showWord(Character[] charArray, char letter, String word) {
+    public void fillAndShowCharArray(Character[] charArray, char letter, String word) {
         for (int i = 0; i < charArray.length; i++) {
-            if ('\u0000' == charArray[i]) {
-                charArray[i] = '_';
-            } else if (word.charAt(i) == letter) {
+            if (word.charAt(i) == letter) {
                 charArray[i] = letter;
             }
         }
