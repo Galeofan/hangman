@@ -19,7 +19,6 @@ public class NewGameAction implements MenuAction {
         String word = store.getWord();
         Character[] charArray = new Character[word.length()];
         showWord(charArray);
-        System.out.println(word);
 
         while (isStarted) {
             System.out.println("Введите " + "букву:");
@@ -29,10 +28,12 @@ public class NewGameAction implements MenuAction {
                 System.out.println("Буква уже была отгадана ранее");
                 System.out.print("Слово в данный момент: \n");
                 showWord(charArray, letter.charAt(0), word);
+                drawHang(mistakes);
             } else if (hasLetter(letter, word)) {
                 counter++;
                 System.out.print("Слово в данный момент: \n");
                 showWord(charArray, letter.charAt(0), word);
+                drawHang(mistakes);
             } else {
                 System.out.println("Буквы " + letter + " нет в слове");
                 mistakes++;
