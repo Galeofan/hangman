@@ -1,10 +1,10 @@
-package main.java.hangman.stores;
+package main.java.hangman.store;
 
 public class VariableStore implements Store {
     private String word;
 
-    public void setWord(String word) {
-        this.word = word;
+    public void setWord() {
+        this.word = "word";
     }
 
     public String getWord() {

@@ -1,4 +1,4 @@
-package main.java.hangman.stores;
+package main.java.hangman.store;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +12,7 @@ public class FileStore implements Store {
     private String word;
 
     @Override
-    public void setWord(String word)  {
+    public void setWord()  {
         try {
             List<String> lines = Files.readAllLines(filePath);
             Random random = new Random();
